@@ -36,15 +36,15 @@
   let rgb = '';
 
   $: if (color) {
-    let body = document.querySelector('body');
-    let hexRegex = /^#?([a-f0-9]{3}|[a-f0-9]{6})$/i;
+    let coloredBackground = document.querySelector('.w-full.h-screen');
+    let hexRegex = /^#?([a-f0-9]{3,4}|[a-f0-9]{6}|[a-f0-9]{8})$/i;
     if (hexRegex.test(color)) {
       if (!color.startsWith('#')) {
         color = '#' + color;
       }
 
-      body.style.background = color;
-      rgb = getComputedStyle(body).backgroundColor;
+      coloredBackground.style.background = color;
+      rgb = getComputedStyle(coloredBackground).backgroundColor;
     }
   }
 
